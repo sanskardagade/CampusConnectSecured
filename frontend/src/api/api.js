@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create axios instance with default configuration
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000' || '/api', // Changed from process.env to import.meta.env
+  baseURL: import.meta.env.VITE_BACKEND_URL || 'http://82.112.238.4:9000' || '/api', // Changed from process.env to import.meta.env
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

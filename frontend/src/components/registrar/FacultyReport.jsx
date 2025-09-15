@@ -46,7 +46,7 @@ const FacultyReport = () => {
     const fetchDepartments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/registrar/dashboard', {
+        const response = await axios.get('http://82.112.238.4:9000/api/registrar/dashboard', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setDepartments(response.data.departments || []);
@@ -112,19 +112,19 @@ const FacultyReport = () => {
       if (reportType === 'attendance') {
         if (attendanceStatus === 'present') {
           endpoint = attendanceType === 'faculty'
-            ? 'http://localhost:5000/api/registrar/faculty-attendance-report'
-            : 'http://localhost:5000/api/registrar/staff-attendance-report';
+            ? 'http://82.112.238.4:9000/api/registrar/faculty-attendance-report'
+            : 'http://82.112.238.4:9000/api/registrar/staff-attendance-report';
         } else {
           endpoint = attendanceType === 'faculty'
-            ? 'http://localhost:5000/api/registrar/absent-faculty-today'
-            : 'http://localhost:5000/api/registrar/absent-staff-today';
+            ? 'http://82.112.238.4:9000/api/registrar/absent-faculty-today'
+            : 'http://82.112.238.4:9000/api/registrar/absent-staff-today';
         }
       } else if (reportType === 'stress') {
         endpoint = stressType === 'faculty'
-          ? 'http://localhost:5000/api/registrar/faculty-stress-report'
-          : 'http://localhost:5000/api/registrar/staff-stress-report';
+          ? 'http://82.112.238.4:9000/api/registrar/faculty-stress-report'
+          : 'http://82.112.238.4:9000/api/registrar/staff-stress-report';
       } else if (reportType === 'leave') {
-        endpoint = 'http://localhost:5000/api/registrar/faculty-leave-report';
+        endpoint = 'http://82.112.238.4:9000/api/registrar/faculty-leave-report';
       }
       const response = await axios.get(endpoint, {
         params,

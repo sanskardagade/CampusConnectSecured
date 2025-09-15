@@ -65,7 +65,7 @@ export default function AttendanceTracker({ initialData }) {
     } else {
       setLoading(true);
       const token = localStorage.getItem('token');
-      fetch("http://localhost:5000/api/hod/faculty-log", {
+      fetch("http://82.112.238.4:9000/api/hod/faculty-log", {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -111,7 +111,7 @@ export default function AttendanceTracker({ initialData }) {
   // Fetch HOD details on mount
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:5000/api/hod/dashboard', {
+    fetch('http://82.112.238.4:9000/api/hod/dashboard', {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -298,7 +298,7 @@ export default function AttendanceTracker({ initialData }) {
   const handleRefresh = () => {
     setLoading(true);
     const token = localStorage.getItem('token');
-    fetch("http://localhost:5000/api/hod/faculty-log", {
+    fetch("http://82.112.238.4:9000/api/hod/faculty-log", {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'

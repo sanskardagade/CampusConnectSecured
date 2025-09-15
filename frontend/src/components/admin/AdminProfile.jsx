@@ -14,7 +14,7 @@ const AdminProfile = () => {
         if (!token) {
           throw new Error('No authentication token found');
         }
-        const response = await axios.get('http://localhost:5000/api/admin/profile', {
+        const response = await axios.get('http://82.112.238.4:9000/api/admin/profile', {
           headers: {
             Authorization: `Bearer ${token}`
           }

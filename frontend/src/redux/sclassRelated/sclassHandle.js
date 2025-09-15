@@ -11,7 +11,7 @@ import {
     getSubDetailsSuccess,
     getSubDetailsRequest
 } from './sclassSlice';
-const REACT_APP_BASE_URL =  "http://localhost:5000";
+const REACT_APP_BASE_URL =  "http://82.112.238.4:9000";
 export const getAllSclasses = (id, address) => async (dispatch) => {
     dispatch(getRequest());
 

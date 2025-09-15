@@ -25,7 +25,7 @@ const PrincipalProfileEdit = () => {
         throw new Error('No authentication token found');
       }
 
-      const response = await axios.get('http://localhost:5000/api/principal/dashboard', {
+      const response = await axios.get('http://82.112.238.4:9000/api/principal/dashboard', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -69,7 +69,7 @@ const PrincipalProfileEdit = () => {
       }
 
       const response = await axios.put(
-        'http://localhost:5000/api/principal/profile',
+        'http://82.112.238.4:9000/api/principal/profile',
         {
           name,
           email

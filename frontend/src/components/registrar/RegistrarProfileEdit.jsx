@@ -21,7 +21,7 @@ const RegistrarProfileEdit = () => {
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/registrar/profile', {
+      const response = await fetch('http://82.112.238.4:9000/api/registrar/profile', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ const RegistrarProfileEdit = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/registrar/profile', {
+      const response = await fetch('http://82.112.238.4:9000/api/registrar/profile', {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

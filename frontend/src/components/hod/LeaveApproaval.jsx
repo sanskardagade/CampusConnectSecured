@@ -41,7 +41,7 @@ export default function LeaveApprovalDashboard() {
         if (!token) {
           throw new Error('Missing auth token');
         }
-        const response = await axios.get('http://localhost:5000/api/hod/leave-approval', {
+        const response = await axios.get('http://82.112.238.4:9000/api/hod/leave-approval', {
           headers: { Authorization: `Bearer ${token}` }
         });
         
@@ -79,7 +79,7 @@ export default function LeaveApprovalDashboard() {
         throw new Error('Missing auth token');
       }
       const response = await axios.put(
-        `http://localhost:5000/api/hod/leave-approval/${application.ErpStaffId}`,
+        `http://82.112.238.4:9000/api/hod/leave-approval/${application.ErpStaffId}`,
         { HodApproval: 'Approved' },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -122,7 +122,7 @@ export default function LeaveApprovalDashboard() {
         throw new Error('Missing auth token');
       }
       const response = await axios.put(
-        `http://localhost:5000/api/hod/leave-approval/${application.ErpStaffId}`,
+        `http://82.112.238.4:9000/api/hod/leave-approval/${application.ErpStaffId}`,
         { HodApproval: 'Rejected' },
         { headers: { Authorization: `Bearer ${token}` } }
       );

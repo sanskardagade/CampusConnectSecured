@@ -15,7 +15,7 @@ const TranscriptVerification = () => {
     const fetchDetails = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/auth/verify/${randomcode}`
+          `http://82.112.238.4:9000/api/auth/verify/${randomcode}`
         );
         const transcript = res.data.result && res.data.result.length > 0 ? res.data.result[0] : null;
         console.log(transcript);

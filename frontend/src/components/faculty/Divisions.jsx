@@ -209,7 +209,7 @@ export default Divisions;
 //   const [users, setUsers] = useState([]);
 
 //   useEffect(() => {
-//     fetch("http://localhost:5000/faculty/divisions") // Updated backend route
+//     fetch("http://82.112.238.4:9000/faculty/divisions") // Updated backend route
 //       .then(res => res.json())
 //       .then(data => setUsers(data))
 //       .catch(err => console.error(err));

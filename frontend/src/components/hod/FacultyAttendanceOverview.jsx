@@ -48,7 +48,7 @@ const FacultyAttendanceOverview = () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'
+        baseURL: import.meta.env.VITE_BACKEND_URL || 'http://82.112.238.4:9000'
       });
       
       if (!res.data || !Array.isArray(res.data)) {
@@ -95,7 +95,7 @@ const FacultyAttendanceOverview = () => {
           'Content-Type': 'application/json'
         },
         params: cleanedParams,
-        baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000',
+        baseURL: import.meta.env.VITE_BACKEND_URL || 'http://82.112.238.4:9000',
         timeout: 10000
       });
 
@@ -430,7 +430,7 @@ export default FacultyAttendanceOverview;
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'application/json'
 //         },
-//         baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'
+//         baseURL: import.meta.env.VITE_BACKEND_URL || 'http://82.112.238.4:9000'
 //       });
       
 //       if (!res.data || !Array.isArray(res.data)) {
@@ -478,7 +478,7 @@ export default FacultyAttendanceOverview;
 //           'Content-Type': 'application/json'
 //         },
 //         params: cleanedParams,
-//         baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000',
+//         baseURL: import.meta.env.VITE_BACKEND_URL || 'http://82.112.238.4:9000',
 //         timeout: 10000
 //       });
 

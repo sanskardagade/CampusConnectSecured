@@ -33,7 +33,7 @@ const Todo = () => {
         setLoading(false);
         return;
       }
-      const response = await fetch('http://localhost:5000/api/faculty/todo', {
+      const response = await fetch('http://82.112.238.4:9000/api/faculty/todo', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -75,8 +75,8 @@ const Todo = () => {
       }
       const method = editingTask ? 'PUT' : 'POST';
       const url = editingTask
-        ? `http://localhost:5000/api/faculty/todo/${editingTask.task_id}`
-        : 'http://localhost:5000/api/faculty/todo';
+        ? `http://82.112.238.4:9000/api/faculty/todo/${editingTask.task_id}`
+        : 'http://82.112.238.4:9000/api/faculty/todo';
 
       const response = await fetch(url, {
         method,
@@ -118,7 +118,7 @@ const Todo = () => {
         setError('You are not logged in. Please login to delete tasks.');
         return;
       }
-      const response = await fetch(`http://localhost:5000/api/faculty/todo/${taskId}`, {
+      const response = await fetch(`http://82.112.238.4:9000/api/faculty/todo/${taskId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -166,7 +166,7 @@ const Todo = () => {
         setError('You are not logged in. Please login to update tasks.');
         return;
       }
-      const response = await fetch(`http://localhost:5000/api/faculty/todo/${task.task_id}`, {
+      const response = await fetch(`http://82.112.238.4:9000/api/faculty/todo/${task.task_id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

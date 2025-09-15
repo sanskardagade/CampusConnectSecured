@@ -29,7 +29,7 @@ const StudentLogs = () => {
       setSubjectsError('');
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/faculty/subjects', {
+        const response = await fetch('http://82.112.238.4:9000/api/faculty/subjects', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!response.ok) {
@@ -75,7 +75,7 @@ const StudentLogs = () => {
     const queryParams = new URLSearchParams(filters).toString();
     try {
       const response = await fetch(
-        `http://localhost:5000/api/faculty/students-logs?${queryParams}`,
+        `http://82.112.238.4:9000/api/faculty/students-logs?${queryParams}`,
         {
           method: "GET",
           headers: {
@@ -137,7 +137,7 @@ const StudentLogs = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/faculty/students-logs/update-attendance', {
+      const response = await fetch('http://82.112.238.4:9000/api/faculty/students-logs/update-attendance', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

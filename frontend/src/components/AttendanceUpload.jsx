@@ -31,7 +31,7 @@ const AttendanceUpload = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/student/upload-attendance', {
+      const response = await fetch('http://82.112.238.4:9000/api/student/upload-attendance', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

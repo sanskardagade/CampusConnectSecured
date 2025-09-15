@@ -27,7 +27,7 @@ const StaffManagement = () => {
   const fetchStaff = async () => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/registrar/staff', {
+      const response = await axios.get('http://82.112.238.4:9000/api/registrar/staff', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -45,7 +45,7 @@ const StaffManagement = () => {
   const fetchDepartments = async () => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/registrar/departments', {
+      const response = await axios.get('http://82.112.238.4:9000/api/registrar/departments', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -120,8 +120,8 @@ const StaffManagement = () => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
       const url = editingStaff 
-        ? `http://localhost:5000/api/registrar/staff/${editingStaff.id}`
-        : 'http://localhost:5000/api/registrar/staff';
+        ? `http://82.112.238.4:9000/api/registrar/staff/${editingStaff.id}`
+        : 'http://82.112.238.4:9000/api/registrar/staff';
       
       const method = editingStaff ? 'PUT' : 'POST';
       
@@ -177,7 +177,7 @@ const StaffManagement = () => {
 
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await axios.delete(`http://localhost:5000/api/registrar/staff/${id}`, {
+      const response = await axios.delete(`http://82.112.238.4:9000/api/registrar/staff/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

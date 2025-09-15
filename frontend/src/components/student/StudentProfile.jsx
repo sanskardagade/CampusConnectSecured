@@ -25,7 +25,7 @@ const StudentProfile = () => {
         const today = new Date().toISOString().slice(0,10);
         
         const response = await axios.get(
-          `http://localhost:5000/api/students/profile`,
+          `http://82.112.238.4:9000/api/students/profile`,
           {
             headers:{
               Authorization: `Bearer ${token}`

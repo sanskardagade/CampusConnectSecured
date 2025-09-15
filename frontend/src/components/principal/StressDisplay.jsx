@@ -29,7 +29,7 @@ function StressDisplay() {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/principal/dashboard', {
+      const response = await axios.get('http://82.112.238.4:9000/api/principal/dashboard', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setDepartments(response.data.departments || []);
@@ -53,7 +53,7 @@ function StressDisplay() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        `http://localhost:5000/api/principal/members?deptId=${deptId}&type=${type}`,
+        `http://82.112.238.4:9000/api/principal/members?deptId=${deptId}&type=${type}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const members = response.data.members || [];
@@ -82,7 +82,7 @@ function StressDisplay() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        `http://localhost:5000/api/principal/view-stress-level?facultyId=${facultyErpid}`,
+        `http://82.112.238.4:9000/api/principal/view-stress-level?facultyId=${facultyErpid}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       // Convert timestamps to Date objects for easier handling

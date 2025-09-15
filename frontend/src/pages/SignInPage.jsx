@@ -32,7 +32,7 @@ const SignInPage = () => {
     setLoading(true);
 
     try {
-      const endpoint = "http://localhost:5000/api/auth/login";
+      const endpoint = "http://82.112.238.4:9000/api/auth/login";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {
