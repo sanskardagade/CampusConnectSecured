@@ -47,7 +47,7 @@ const FacultyReport = () => {
     const fetchDepartments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://69.62.83.14:9000/api/principal/dashboard', {
+        const response = await axios.get('http://localhost:5000/api/principal/dashboard', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setDepartments(response.data.departments || []);
@@ -116,19 +116,19 @@ const FacultyReport = () => {
       if (reportType === 'attendance') {
         if (attendanceStatus === 'present') {
           endpoint = attendanceType === 'faculty'
-            ? 'http://69.62.83.14:9000/api/principal/faculty-attendance-report'
-            : 'http://69.62.83.14:9000/api/principal/staff-attendance-report';
+            ? 'http://localhost:5000/api/principal/faculty-attendance-report'
+            : 'http://localhost:5000/api/principal/staff-attendance-report';
         } else {
           endpoint = attendanceType === 'faculty'
-            ? 'http://69.62.83.14:9000/api/principal/absent-faculty-today'
-            : 'http://69.62.83.14:9000/api/principal/absent-staff-today'; // be sure to implement this backend route
+            ? 'http://localhost:5000/api/principal/absent-faculty-today'
+            : 'http://localhost:5000/api/principal/absent-staff-today'; // be sure to implement this backend route
         }
       } else if (reportType === 'stress') {
         endpoint = stressType === 'faculty'
-          ? 'http://69.62.83.14:9000/api/principal/faculty-stress-report'
-          : 'http://69.62.83.14:9000/api/principal/staff-stress-report';
+          ? 'http://localhost:5000/api/principal/faculty-stress-report'
+          : 'http://localhost:5000/api/principal/staff-stress-report';
       } else if (reportType === 'leave') {
-        endpoint = 'http://69.62.83.14:9000/api/principal/faculty-leave-report';
+        endpoint = 'http://localhost:5000/api/principal/faculty-leave-report';
       }
 
       const response = await axios.get(endpoint, {

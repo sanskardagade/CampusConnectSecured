@@ -59,7 +59,7 @@ const SecurityDashboard = () => {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get('http://69.62.83.14:9000/api/registrar/security-dashboard', {
+      const res = await axios.get('http://localhost:5000/api/registrar/security-dashboard', {
         params: { date: getSelectedDateYMD() },
       });
 
@@ -87,7 +87,7 @@ const SecurityDashboard = () => {
   // -------- Debug endpoints --------
   const fetchDebugData = async () => {
     try {
-      const res = await axios.get('http://69.62.83.14:9000/api/registrar/security-dashboard/debug');
+      const res = await axios.get('http://localhost:5000/api/registrar/security-dashboard/debug');
       setDebugData(res.data);
     } catch (err) {
       console.error('Error fetching debug data:', err);
@@ -96,7 +96,7 @@ const SecurityDashboard = () => {
 
   const fetchFacultyStatus = async (erpId) => {
     try {
-      const res = await axios.get(`http://69.62.83.14:9000/api/registrar/security-dashboard/status/${erpId}`);
+      const res = await axios.get(`http://localhost:5000/api/registrar/security-dashboard/status/${erpId}`);
       console.log('Faculty status:', res.data);
       return res.data;
     } catch (err) {
@@ -107,7 +107,7 @@ const SecurityDashboard = () => {
 
   const fetchExitedToday = async () => {
     try {
-      const res = await axios.get('http://69.62.83.14:9000/api/registrar/security-dashboard/exited-today');
+      const res = await axios.get('http://localhost:5000/api/registrar/security-dashboard/exited-today');
       console.log('Exited today:', res.data);
       return res.data;
     } catch (err) {
@@ -123,7 +123,7 @@ const SecurityDashboard = () => {
     setSuccess('');
     setError('');
     try {
-      const r = await axios.post('http://69.62.83.14:9000/api/registrar/security-dashboard/exit', { erpStaffId });
+      const r = await axios.post('http://localhost:5000/api/registrar/security-dashboard/exit', { erpStaffId });
       console.log('[handleMarkExit] Response:', r.data);
       setSuccess(r.data.message || 'Exit marked successfully!');
       fetchLeaves();
@@ -144,7 +144,7 @@ const SecurityDashboard = () => {
     setSuccess('');
     setError('');
     try {
-      const r = await axios.post('http://69.62.83.14:9000/api/registrar/security-dashboard/unexit', { erpStaffId });
+      const r = await axios.post('http://localhost:5000/api/registrar/security-dashboard/unexit', { erpStaffId });
       console.log('[handleUnmarkExit] Response:', r.data);
       setSuccess(r.data.message || 'Exit unmarked successfully!');
       fetchLeaves();

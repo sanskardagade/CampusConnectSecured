@@ -27,7 +27,7 @@ const FacultyManagement = () => {
   const fetchFaculty = async () => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await axios.get('http://69.62.83.14:9000/api/registrar/faculty', {
+      const response = await axios.get('http://localhost:5000/api/registrar/faculty', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -45,7 +45,7 @@ const FacultyManagement = () => {
   const fetchDepartments = async () => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await axios.get('http://69.62.83.14:9000/api/registrar/departments', {
+      const response = await axios.get('http://localhost:5000/api/registrar/departments', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -120,8 +120,8 @@ const FacultyManagement = () => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
       const url = editingFaculty 
-        ? `http://69.62.83.14:9000/api/registrar/faculty/${editingFaculty.id}`
-        : 'http://69.62.83.14:9000/api/registrar/faculty';
+        ? `http://localhost:5000/api/registrar/faculty/${editingFaculty.id}`
+        : 'http://localhost:5000/api/registrar/faculty';
       
       const method = editingFaculty ? 'PUT' : 'POST';
       
@@ -175,7 +175,7 @@ const FacultyManagement = () => {
 
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await axios.delete(`http://69.62.83.14:9000/api/registrar/faculty/${id}`, {
+      const response = await axios.delete(`http://localhost:5000/api/registrar/faculty/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

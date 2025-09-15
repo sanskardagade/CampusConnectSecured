@@ -39,7 +39,7 @@ const AdminSignInPage = () => {
     setError("");
     setLoading(true);
     try {
-      const endpoint = "http://69.62.83.14:9000/api/admin/login";
+      const endpoint = "http://localhost:5000/api/admin/login";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

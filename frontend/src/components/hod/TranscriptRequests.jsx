@@ -15,7 +15,7 @@ const TranscriptRequests = () => {
           setError("You are not logged in. Please login to view transcript requests.");
           return;
         }
-        const res = await fetch("http://69.62.83.14:9000/api/hod/transcript-requests", {
+        const res = await fetch("http://localhost:5000/api/hod/transcript-requests", {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -37,7 +37,7 @@ const TranscriptRequests = () => {
       setApproving((prev) => ({ ...prev, [requestId]: true }));
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `http://69.62.83.14:9000/api/hod/transcript-requests/${requestId}/approve`,
+        `http://localhost:5000/api/hod/transcript-requests/${requestId}/approve`,
         { method: "PATCH", headers: { Authorization: `Bearer ${token}` } }
       );
       const data = await res.json();
@@ -138,7 +138,7 @@ const TranscriptRequests = () => {
       const data = new FormData();
       data.append('pdf', file);
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://69.62.83.14:9000/api/hod/transcript-requests/${reqObj.request_id}/upload-pdf`, {
+      const res = await fetch(`http://localhost:5000/api/hod/transcript-requests/${reqObj.request_id}/upload-pdf`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
         body: data,

@@ -9,7 +9,7 @@ import {
 } from './teacherSlice';
 
 // const REACT_APP_BASE_URL = "https://campus-link-4.onrender.com";
- const REACT_APP_BASE_URL = "http://69.62.83.14:9000";
+ const REACT_APP_BASE_URL = "http://localhost:5000";
 
 
 export const getAllTeachers = (id) => async (dispatch) => {

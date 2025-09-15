@@ -26,8 +26,8 @@ const StudentSubjects = () => {
 
         // Fetch subjects and attendance data in parallel
         const [subjectsRes, attendanceRes] = await Promise.all([
-          fetch('http://69.62.83.14:9000/api/students/subjects', { headers }),
-          fetch('http://69.62.83.14:9000/api/students/attendance-summary', { headers })
+          fetch('http://localhost:5000/api/students/subjects', { headers }),
+          fetch('http://localhost:5000/api/students/attendance-summary', { headers })
         ]);
 
         if (!subjectsRes.ok) {

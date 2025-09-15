@@ -34,7 +34,7 @@ const AdminProfile = () => {
         console.log('Fetching Admin profile...')
         console.log('Token:', token) // Debug token
 
-        const response = await axios.get('http://69.62.83.14:9000/api/admin/profile', {
+        const response = await axios.get('http://localhost:5000/api/admin/profile', {
           headers: {
             Authorization: `Bearer ${token}`
           }

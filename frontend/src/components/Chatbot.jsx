@@ -37,7 +37,7 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://69.62.83.14:9000/api/chatbot/message', 
+      const response = await axios.post('http://localhost:5000/api/chatbot/message', 
         { message: userMessage.content }
       );
 

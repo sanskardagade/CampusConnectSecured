@@ -27,7 +27,7 @@ const FacultyProfileEdit = () => {
         // Get today's date in YYYY-MM-DD format
         const today = new Date().toISOString().slice(0, 10);
         const response = await axios.get(
-          `http://69.62.83.14:9000/api/faculty/dashboard?date=${today}`,
+          `http://localhost:5000/api/faculty/dashboard?date=${today}`,
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -78,7 +78,7 @@ const FacultyProfileEdit = () => {
 
       console.log('Submitting update with data:', { email: formData.email })
       const response = await axios.put(
-        'http://69.62.83.14:9000/api/faculty/profile',
+        'http://localhost:5000/api/faculty/profile',
         { email: formData.email },
         {
           headers: {

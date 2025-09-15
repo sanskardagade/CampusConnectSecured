@@ -413,6 +413,7 @@ const LeaveBalancesTable = ({ leaveBalances, leaveApplications, isLoading }) => 
             const consumed = getConsumed(type.key);
             const current = leaveBalances[type.key] ?? 0;
             const total = consumed + current;
+            
             return (
               <tr key={type.key} className={idx % 2 === 0 ? "bg-white" : "bg-orange-50"}>
                 <td className="px-3 py-2">{type.label}</td>
@@ -457,7 +458,7 @@ export default function LeaveApplication() {
       try {
         // Get today's date in YYYY-MM-DD format
         const today = new Date().toISOString().slice(0, 10);
-        const response = await fetch(`http://69.62.83.14:9000/api/faculty/dashboard?date=${today}`, {
+        const response = await fetch(`http://localhost:5000/api/faculty/dashboard?date=${today}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -489,7 +490,7 @@ export default function LeaveApplication() {
   useEffect(() => {
     const fetchLeaveApplications = async () => {
       try {
-        const response = await fetch('http://69.62.83.14:9000/api/faculty/leave-apply', {
+        const response = await fetch('http://localhost:5000/api/faculty/leave-apply', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -516,7 +517,7 @@ export default function LeaveApplication() {
   useEffect(() => {
     const fetchLeaveBalances = async () => {
       try {
-        const response = await fetch('http://69.62.83.14:9000/api/faculty/leave-balances', {
+        const response = await fetch('http://localhost:5000/api/faculty/leave-balances', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -618,7 +619,7 @@ export default function LeaveApplication() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('http://69.62.83.14:9000/api/faculty/leave-apply', {
+      const response = await fetch('http://localhost:5000/api/faculty/leave-apply', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -646,7 +647,7 @@ export default function LeaveApplication() {
       });
 
       // Refresh leave applications
-      const applicationsResponse = await fetch('http://69.62.83.14:9000/api/faculty/leave-apply', {
+      const applicationsResponse = await fetch('http://localhost:5000/api/faculty/leave-apply', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

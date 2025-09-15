@@ -29,7 +29,7 @@ function AdminStressDisplay() {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://69.62.83.14:9000/api/admin/dashboard', {
+      const response = await axios.get('http://localhost:5000/api/admin/dashboard', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setDepartments(response.data.departments || []);
@@ -53,7 +53,7 @@ function AdminStressDisplay() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        `http://69.62.83.14:9000/api/admin/members?deptId=${deptId}&type=${type}`,
+        `http://localhost:5000/api/admin/members?deptId=${deptId}&type=${type}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const members = response.data.members || [];
@@ -82,7 +82,7 @@ function AdminStressDisplay() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        `http://69.62.83.14:9000/api/admin/view-stress-level?facultyId=${facultyErpid}`,
+        `http://localhost:5000/api/admin/view-stress-level?facultyId=${facultyErpid}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       // Convert timestamps to Date objects for easier handling

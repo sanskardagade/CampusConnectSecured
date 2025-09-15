@@ -13,7 +13,7 @@ const StudentsSection = () => {
         const fetchStudents = async () => {
             try {
                 setLoading(true);
-                const response = await fetch('http://69.62.83.14:9000/api/faculty/students-data', {
+                const response = await fetch('http://localhost:5000/api/faculty/students-data', {
                     headers: { 
                         'Authorization': `Bearer ${localStorage.getItem('token')}`,
                         'Content-Type': 'application/json'

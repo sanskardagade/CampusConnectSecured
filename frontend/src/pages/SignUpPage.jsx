@@ -68,7 +68,7 @@ const SignUpPage = () => {
           department: formData.department,
           semester: formData.semester
         };
-        endpoint = "http://69.62.83.14:9000/api/student/register";
+        endpoint = "http://localhost:5000/api/student/register";
       } else {
         // Other user registration (faculty, HOD, principal)
         registrationData = {
@@ -92,7 +92,7 @@ const SignUpPage = () => {
           registrationData.principalId = formData.principalId;
         }
 
-        endpoint = "http://69.62.83.14:9000/api/auth/register";
+        endpoint = "http://localhost:5000/api/auth/register";
       }
 
       console.log('Submitting registration data:', registrationData);

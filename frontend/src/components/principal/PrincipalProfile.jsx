@@ -34,7 +34,7 @@ const PrincipalProfile = () => {
         console.log('Fetching Principal profile...')
         console.log('Token:', token) // Debug token
 
-        const response = await axios.get('http://69.62.83.14:9000/api/principal/profile', {
+        const response = await axios.get('http://localhost:5000/api/principal/profile', {
           headers: {
             Authorization: `Bearer ${token}`
           }

@@ -47,55 +47,6 @@ app.get('/api/hod/faculty-log', authenticateToken, async (req, res) => {
   }
 });
 
-//HOD Leave Approval
-app.get('/api/hod/leave-approval', async (req, res) => {
-  try {
-    const rows = await sql`
-      SELECT * FROM faculty_leave
-      WHERE "HodApproval" = 'Pending'
-    `;
-    console.log(rows);
-    res.json(rows);
-  } catch (error) {
-    console.error("Detailed error in /leave-approval route:", error);
-    res.status(500).json({ message: "Error fetching all leave applications" });
-  }
-});
-
-app.put('/api/hod/leave-approval/:erpStaffId', async (req, res) => {
-  const { erpStaffId } = req.params;
-  const { HodApproval } = req.body;
-
-  try {
-    // Validate the approval status
-    if (!['Approved', 'Rejected'].includes(HodApproval)) {
-      return res.status(400).json({ error: 'Invalid approval status' });
-    }
-
-    if (HodApproval === 'Rejected') {
-      // If rejected, update all status fields to Rejected
-      await sql`
-        UPDATE faculty_leave 
-        SET "HodApproval" = ${HodApproval},
-            "PrincipalApproval" = 'Rejected',
-            "FinalStatus" = 'Rejected'
-        WHERE "ErpStaffId" = ${erpStaffId}
-      `;
-    } else {
-      // If approved, only update HOD approval
-      await sql`
-        UPDATE faculty_leave 
-        SET "HodApproval" = ${HodApproval}
-        WHERE "ErpStaffId" = ${erpStaffId}
-      `;
-    }
-    res.json({ message: 'Leave approval updated successfully' });
-  } catch (error) {
-    console.error('Error updating leave approval:', error);
-    res.status(500).json({ error: 'Error updating leave approval' });
-  }
-});
-
 //Principal Leave Approval
 app.get('/api/principal/faculty-leave-approval', async (req, res) => {
   try {

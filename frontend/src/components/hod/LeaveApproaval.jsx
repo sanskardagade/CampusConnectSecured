@@ -37,10 +37,17 @@ export default function LeaveApprovalDashboard() {
   useEffect(() => {
     const fetchLeaveApplications = async () => {
       try {
-        const response = await axios.get('http://69.62.83.14:9000/api/hod/leave-approval');
+        const token = localStorage.getItem('token');
+        if (!token) {
+          throw new Error('Missing auth token');
+        }
+        const response = await axios.get('http://localhost:5000/api/hod/leave-approval', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
         
         if (response.data && Array.isArray(response.data)) {
           console.log('Received leave applications:', response.data);
+          console.log(typeof(response.data));
           setLeaveApplications(response.data);
         } else {
           console.error('Invalid data format received:', response.data);
@@ -67,9 +74,15 @@ export default function LeaveApprovalDashboard() {
     }
 
     try {
-      const response = await axios.put(`http://69.62.83.14:9000/api/hod/leave-approval/${application.ErpStaffId}`, {
-        HodApproval: 'Approved'
-      });
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('Missing auth token');
+      }
+      const response = await axios.put(
+        `http://localhost:5000/api/hod/leave-approval/${application.ErpStaffId}`,
+        { HodApproval: 'Approved' },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
 
       if (response.status === 200) {
         setLeaveApplications(leaveApplications.map(app => 
@@ -104,9 +117,15 @@ export default function LeaveApprovalDashboard() {
     }
     
     try {
-      const response = await axios.put(`http://69.62.83.14:9000/api/hod/leave-approval/${application.ErpStaffId}`, {
-        HodApproval: 'Rejected'
-      });
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('Missing auth token');
+      }
+      const response = await axios.put(
+        `http://localhost:5000/api/hod/leave-approval/${application.ErpStaffId}`,
+        { HodApproval: 'Rejected' },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
 
       if (response.status === 200) {
         setLeaveApplications(leaveApplications.map(app => 
@@ -153,6 +172,12 @@ export default function LeaveApprovalDashboard() {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
+  const filterByTab = (app) => {
+    const status = app?.HodApproval || app?.FinalStatus || app?.status;
+    if (!status) return selectedTab === 'Pending';
+    return status === selectedTab;
+  };
+
   return (
     <>
       <HeaderMobile title="Leaves" />
@@ -168,7 +193,7 @@ export default function LeaveApprovalDashboard() {
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-xl font-semibold text-red-900">Pending Approvals</h2>
                     <span className="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                      {leaveApplications.filter(app => app.status === selectedTab).length} {selectedTab.toLowerCase()}
+                      {leaveApplications.filter(filterByTab).length} {selectedTab.toLowerCase()}
                     </span>
                   </div>
                   <div className="space-y-3">
@@ -202,7 +227,7 @@ export default function LeaveApprovalDashboard() {
                       </div>
                     ) : (
                       <>
-                        {leaveApplications.filter(app => app.status === selectedTab).map((application, index) => (
+                        {leaveApplications.filter(filterByTab).map((application, index) => (
                           <div 
                             key={`pending-${application.ErpStaffId || index}`}
                             className={`border rounded-lg p-3 cursor-pointer transition-all duration-200 ${
@@ -236,7 +261,7 @@ export default function LeaveApprovalDashboard() {
                           </div>
                         ))}
                         
-                        {leaveApplications.filter(app => app.status === selectedTab).length === 0 && (
+                        {leaveApplications.filter(filterByTab).length === 0 && (
                           <div className="text-center py-8 text-gray-500 bg-gray-50 rounded-lg">
                             <AlertCircle className="mx-auto h-8 w-8 text-gray-400 mb-2" />
                             <p>No {selectedTab.toLowerCase()} applications</p>
@@ -363,7 +388,7 @@ export default function LeaveApprovalDashboard() {
                         </div>
 
                         {/* Action Buttons */}
-                        {selectedApplication.status === "Pending" && (
+                        {selectedApplication.HodApproval === "Pending" && (
                           <div className="mt-6 flex justify-end space-x-4">
                             <button
                               onClick={() => handleReject(selectedApplication)}

@@ -21,7 +21,7 @@ const AttendanceDashboard = () => {
   const fetchAttendanceSummary = async () => {
     try {
       setLoading(true);
-      const response = await api.get('http://69.62.83.14:9000/api/studentAttendance/summary');
+      const response = await api.get('http://localhost:5000/api/studentAttendance/summary');
       setSummary(response.data.data);
     } catch (error) {
       message.error('Failed to fetch attendance summary');
@@ -42,7 +42,7 @@ const AttendanceDashboard = () => {
         ...(selectedSubject && { subjectId: selectedSubject })
       };
       
-      const response = await api.get('http://69.62.83.14:9000/api/details', { params });
+      const response = await api.get('http://localhost:5000/api/details', { params });
       setDetails(response.data.data);
       
       // Update total count if available from the API

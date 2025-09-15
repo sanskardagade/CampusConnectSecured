@@ -34,7 +34,7 @@ const HODProfile = () => {
         console.log('Fetching HOD profile...')
         console.log('Token:', token) // Debug token
 
-        const response = await axios.get('http://69.62.83.14:9000/api/hod/dashboard', {
+        const response = await axios.get('http://localhost:5000/api/hod/dashboard', {
           headers: {
             Authorization: `Bearer ${token}`
           }

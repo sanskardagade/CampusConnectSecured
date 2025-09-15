@@ -21,7 +21,7 @@ const EnergyDataDisplay = () => {
           throw new Error('Authentication required. Please login.');
         }
 
-        const response = await fetch('http://69.62.83.14:9000/api/registrar/energy-data', {
+        const response = await fetch('http://localhost:5000/api/registrar/energy-data', {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -123,7 +123,7 @@ const EnergyDataDisplay = () => {
       const fetchData = async () => {
         try {
           const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-          const response = await fetch('http://69.62.83.14:9000/api/registrar/energy-data', {
+          const response = await fetch('http://localhost:5000/api/registrar/energy-data', {
             headers: {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json'

@@ -11,7 +11,7 @@ import StudentProfileEdit from '../components/student/StudentProfileEdit';
 import StudentPasswordChange from '../components/student/StudentPasswordChange';
 import StudentSubjects from '../components/student/StudentSubjects';
 import LandingPage from '../pages/LandingPage';
-import StudentAttendance from '../components/student/studentAttendance';
+import StudentAttendance from '../components/student/StudentAttendance';
 import Transcript from '../components/student/Transcript';
 import StudentDashboard from '../pages/StudentDashboard';
 

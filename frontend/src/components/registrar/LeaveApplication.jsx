@@ -40,7 +40,7 @@ export default function LeaveApplication() {
   useEffect(() => {
     const fetchLeaveApplications = async () => {
       try {
-        const response = await axios.get('http://69.62.83.14:9000/api/registrar/faculty-leave-approval', {
+        const response = await axios.get('http://localhost:5000/api/registrar/faculty-leave-approval', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -83,7 +83,7 @@ export default function LeaveApplication() {
 
     try {
       const response = await axios.put(
-        `http://69.62.83.14:9000/api/registrar/faculty-leave-approval/${application.ErpStaffId}`,
+        `http://localhost:5000/api/registrar/faculty-leave-approval/${application.ErpStaffId}`,
         { PrincipalApproval: 'Approved' },
         {
           headers: {
@@ -123,7 +123,7 @@ export default function LeaveApplication() {
     }
     try {
       const response = await axios.put(
-        `http://69.62.83.14:9000/api/registrar/faculty-leave-approval/${selectedApplication.ErpStaffId}`,
+        `http://localhost:5000/api/registrar/faculty-leave-approval/${selectedApplication.ErpStaffId}`,
         { PrincipalApproval: 'Rejected' },
         {
           headers: {

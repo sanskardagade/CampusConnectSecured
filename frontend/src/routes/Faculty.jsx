@@ -16,7 +16,7 @@ import DummyFacultyStress from "../components/faculty/DummyFacultyStress";
 import AttendanceReport from "../components/faculty/AttendanceReport";
 import StudentsSection from "../components/faculty/StudentsSection";
 import StudentsLogs from "../components/faculty/Students_logs";
-import Todo from "../components/faculty/todo";
+import Todo from "../components/faculty/Todo.jsx";
 
 const Faculty = () => {
   return (

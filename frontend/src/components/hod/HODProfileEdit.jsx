@@ -22,7 +22,7 @@ const HODProfileEdit = () => {
     try {
       const token = localStorage.getItem('token');
       if (!token) throw new Error('No authentication token found');
-      const response = await axios.get('http://69.62.83.14:9000/api/hod/dashboard', {
+      const response = await axios.get('http://localhost:5000/api/hod/dashboard', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setFormData({
@@ -56,7 +56,7 @@ const HODProfileEdit = () => {
       const token = localStorage.getItem('token');
       if (!token) throw new Error('No authentication token found');
       const response = await axios.put(
-        'http://69.62.83.14:9000/api/hod/profile',
+        'http://localhost:5000/api/hod/profile',
         { name, email },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -16,7 +16,7 @@ const StudentProfileEdit = () => {
         const token = localStorage.getItem('token');
         if (!token) throw new Error('No authentication token found');
 
-        const response = await axios.get('http://69.62.83.14:9000/api/students/profile', {
+        const response = await axios.get('http://localhost:5000/api/students/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -51,7 +51,7 @@ const StudentProfileEdit = () => {
       const token = localStorage.getItem('token');
       if (!token) throw new Error('No authentication token found');
 
-      await axios.put('http://69.62.83.14:9000/api/students/profile', formData, {
+      await axios.put('http://localhost:5000/api/students/profile', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

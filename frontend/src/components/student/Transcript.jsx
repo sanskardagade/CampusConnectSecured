@@ -39,7 +39,7 @@ export default function Transcript() {
       setLoading(true);
       setError("");
       const token = localStorage.getItem("token");
-      const res = await fetch("http://69.62.83.14:9000/api/students/transcripts", {
+      const res = await fetch("http://localhost:5000/api/students/transcripts", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const json = await res.json();
@@ -118,7 +118,7 @@ export default function Transcript() {
 
       // Step 1: Submit basic transcript request
       const token = localStorage.getItem("token");
-      const res1 = await fetch("http://69.62.83.14:9000/api/students/transcript", {
+      const res1 = await fetch("http://localhost:5000/api/students/transcript", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: data,
@@ -138,7 +138,7 @@ export default function Transcript() {
         }, {}),
       };
 
-      const res2 = await fetch("http://69.62.83.14:9000/api/students/transcript-details", {
+      const res2 = await fetch("http://localhost:5000/api/students/transcript-details", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
